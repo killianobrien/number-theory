@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Killian O'Brien" />
+  <meta name="date" content="2013-10-03" />
+  <title>6G5Z3006_1314 \\ Number Theory &amp; Cryptography</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+   href="mycss.css" />
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+      <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+      <script>$(function () {
+      // Make the div with id 'mycell' a Sage cell
+      sagecell.makeSagecell({inputLocation:  '#mycell',
+                             template:       sagecell.templates.minimal,
+                             evalButtonText: 'Activate'});
+      // Make *any* div with class 'compute' a Sage cell
+      sagecell.makeSagecell({inputLocation: 'div.compute',
+                             evalButtonText: 'Evaluate'});
+      });
+      </script>
+  	<link rel="stylesheet" type="text/css" href="https://sagecell.sagemath.org/static/sagecell_embed.css">
+  <script src="http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js.gz"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">6G5Z3006_1314 \\ Number Theory &amp; Cryptography</h1>
+  <p class="author">
+Killian O'Brien
+  </p>
+  <p class="date">03 October 2013</p>
+</div>
+<div id="ntc-introduction" class="titleslide slide section level1"><h1>NT&amp;C \\ Introduction</h1></div><div id="ntc-introduction-1" class="slide section level2">
+<h1>NT&amp;C \\ Introduction</h1>
+<p>See the info page on the unit's <a href="http://moodle.mmu.ac.uk/course/view.php?id=35029">Moodle area</a> for information on</p>
+<ul>
+<li>Teaching team &amp; pattern</li>
+<li>Unit syllabus</li>
+<li>Assessment</li>
+<li>Resources</li>
+</ul>
+</div><div id="ntc-what-is-number-theory" class="slide section level2">
+<h1>NT&amp;C \\ What is number theory?</h1>
+<ul>
+<li>Number Theory is the study of the positive integers and the operations of addition and multiplication and their properties.</li>
+<li>Of particular importance are the <em>prime numbers</em>, those positive integers <span class="math">\(p&gt;1\)</span> whose only factors are 1 and <span class="math">\(p\)</span>.</li>
+<li>NT has a long history and the earliest mathematicians considered problems in this area.</li>
+</ul>
+<p>NT is a central area in pure mathematics and has several sub-fields including</p>
+<ul>
+<li>Analytic number theory -- where tools from analysis (real and complex valued functions) are used to study properties of the integers</li>
+<li>Algebraic number theory -- studies questions surrounding other algebraic structures related to the integers and rational numbers.</li>
+</ul>
+<p>NT used to be seen as <em>purely</em> pure mathematics, with little or no application to the practical world. However since the mid 20th Century it plays an important role in the study of algorithms in computer science and in the generation of cryptographic systems for secure communication.</p>
+<p>Two sources for further information about the history of number theory are</p>
+<ul>
+<li><a href="http://openlibrary.org/books/OL6616242M/History_of_the_theory_of_numbers_..."><em>History of the theory of numbers</em></a> (1919) by Leonard Eugene Dickson.</li>
+<li><a href="http://capitadiscovery.co.uk/mmu/items/1539085"><em>Number theory and its history</em></a> by Oystein Ore (link to MMU library)</li>
+</ul>
+<p>Coming up to date, the leaked documents from Edward Snowden contain allegations that place mathematics at the heart of one of the central political, legal and human rights issues of the day. Read about Snowden's revelations from</p>
+<ul>
+<li><a href="http://www.theguardian.com/world/edward-snowden">The Guardian</a></li>
+<li><a href="http://www.propublica.org/series/surveillance">ProPublica</a></li>
+</ul>
+</div><div id="ntc-the-integers-ch.-1" class="slide section level2">
+<h1>NT&amp;C \\ The integers (Ch. 1)</h1>
+<p>To put things on a firm foundation we need a rigorous description of the integers, <span class="math">\[\mathbb{Z} = \left \{ \dots, -3, -2, -1, 0 , 1 , 2, 3, \dots \right \}.\]</span></p>
+<p>The need to take such care at his initial stage can be appreciated by considering all the other mathematical systems that have addition-like and multiplication-like operations, such as the natural numbers (<span class="math">\(\mathbb{N}\)</span>), the rationals (<span class="math">\(\mathbb{Q}\)</span>), the real numbers (<span class="math">\(\mathbb{R}\)</span>), the complex numbers (<span class="math">\(\mathbb{C}\)</span>), matrices, functions, <span class="math">\(\dots\)</span> , to name but a few.</p>
+<p>The integers can be uniquely defined (up to isomorphism) by a system of 11 axioms.</p>
+<p>The first set of axioms concern the addition operation.</p>
+<ol style="list-style-type: decimal">
+<li>(<strong>Assosiativity of addition</strong>) For all <span class="math">\(x,y,z \in S\)</span>, <span class="math">\((x+y)+z = x+ (y+z)\)</span>.</li>
+<li>(<strong>Existense of additive identity</strong>) There exists <span class="math">\(0 \in S\)</span> with the property that for all <span class="math">\(x \in S\)</span>, <span class="math">\(x+0=0+x =x\)</span>.</li>
+<li>(<strong>Existence of additive inverses</strong>) For all <span class="math">\(x \in S\)</span>, there exists <span class="math">\(-x \in S\)</span> such that <span class="math">\(x + (-x) = (-x) + x = 0\)</span>.</li>
+<li>(<strong>Commutativity of addition</strong>) For all <span class="math">\(x,y \in S\)</span>, <span class="math">\(x+y = y+x\)</span>.</li>
+</ol>
+<p>These axioms characterise such a system <span class="math">\((S, +)\)</span> as a <em>commutative group</em>. The next set of axioms concern the multiplication operation.</p>
+<ol start="5" style="list-style-type: decimal">
+<li>(<strong>Associativity of multiplication</strong>) For all <span class="math">\(x,y,z \in S\)</span>, <span class="math">\(x(yz) = (xy)z\)</span>.</li>
+<li>(<strong>Existence of multiplicative identity</strong>) There exists <span class="math">\(1 \in S\)</span> with the property that for all <span class="math">\(x \in S\)</span>, <span class="math">\(1x = x1 = x\)</span>.</li>
+<li>(<strong>Commutativity of multiplication</strong>) For all <span class="math">\(x,y \in S\)</span>, <span class="math">\(xy = yx\)</span>.</li>
+<li>(<strong>Distributivity between addition and multiplication</strong>) For all <span class="math">\(x,y,z \in S\)</span>, <span class="math">\((x+y)z = xz + yz\)</span>.</li>
+</ol>
+<p>These eight axioms characterise the system <span class="math">\((S, + , \cdot)\)</span> as a <em>commutative ring with identity</em>.</p>
+<p>The next set of axioms concern the concept of the ordering of the elements of <span class="math">\(S\)</span>. The ordering <span class="math">\(&gt;\)</span> is defined in terms of a set of <em>positive</em> elements <span class="math">\(P\)</span>. We will write <span class="math">\(x&gt;0\)</span> to mean that <span class="math">\(x \in P\)</span>, and write <span class="math">\(x&gt;y\)</span> to mean that <span class="math">\(x-y \in P\)</span>.</p>
+<p>The system <span class="math">\((S, + , \cdot)\)</span> is an <em>ordered</em> ring if there exists a subset <span class="math">\(P \subset S\)</span>, (think of <span class="math">\(P\)</span> as containing all the 'positive' elements) satisfying the following three axioms.</p>
+<ol start="9" style="list-style-type: decimal">
+<li>(<strong>Trichotomy</strong>) <span class="math">\(S\)</span> is a disjoint union <span class="math">\[
+S= -P \cup \{ 0 \} \cup P,
+\]</span> where <span class="math">\(-P=\{ -x : x \in P \}\)</span>.</li>
+<li>(<strong>Positivity preserved by sums and products</strong>) For all <span class="math">\(x,y \in P\)</span> we have <span class="math">\(x+y \in P\)</span> and <span class="math">\(xy \in P\)</span>.</li>
+</ol>
+<p>A system <span class="math">\((S,+,\cdot,&gt;)\)</span> satisfying the above axioms is called a <em>commutative ordered ring</em>. All other properties of the order relation can be derived from the above axioms. <span class="math">\(\mathbb{Z}\)</span>, <span class="math">\(\mathbb{Q}\)</span> and <span class="math">\(\mathbb{R}\)</span> are all examples of commutative ordered rings.</p>
+<p>The final step in characterizing the integers, the one that discriminates them from other commutative ordered rings is the notion that the elements <span class="math">\(1\)</span>, <span class="math">\(1+1\)</span>, <span class="math">\(1+1+1\)</span>, etc are <em>all</em> of the positive integers. This notion is captured by either of the following two logically equivalent axioms.</p>
+<p>11a. (<strong>Induction axiom</strong>) If <span class="math">\(J\)</span> is a subset of the positive elements of <span class="math">\(S\)</span>, i.e. <span class="math">\(J \subset P \subset S\)</span>, and <span class="math">\(J\)</span> has the properties</p>
+<ul>
+<li><span class="math">\(1 \in J\)</span>,</li>
+<li><span class="math">\(j \in J \Rightarrow j+1 \in J\)</span>,</li>
+</ul>
+<p>then <span class="math">\(J = P\)</span>.</p>
+<p>11b. (<strong>Well-ordered axiom</strong>) Every non empty subset of <span class="math">\(P\)</span> has a least element, i.e. if <span class="math">\(Q \subset P\)</span> is non-empty then there exists <span class="math">\(q_{\text{min}} \in Q\)</span> such that for all <span class="math">\(q \in Q\)</span> we have <span class="math">\(q_{\text{min}} \leq q\)</span>.</p>
+<p>Moreover the least element <span class="math">\(q_{\text{min}}\)</span> referred to in axiom (11b.) is unique, this following from the trichotomy axiom.</p>
+</div><div id="ntc-the-integers" class="slide section level2">
+<h1>NT&amp;C \\ The integers</h1>
+<h3 id="proofs-by-induction-sec.-1.3">Proofs by induction (sec. 1.3)</h3>
+<p>Many important results in number theory are proved using proof by induction (or the well-ordered axiom). The induction axiom was expressed in terms of elements of a set. However proofs by induction are more usually presented by associating a statement with each positive integer and making use of the following version of the axiom.</p>
+<h4 id="usual-phrasing-of-induction-principle">Usual phrasing of induction principle</h4>
+<p>Suppose that we have a statement <span class="math">\(P(n)\)</span> associated to every integer <span class="math">\(n \geq 1\)</span>. If the following two statements hold:</p>
+<ul>
+<li><span class="math">\(P(1)\)</span> is true,</li>
+<li>for all <span class="math">\(k \geq 1\)</span>, <span class="math">\(P(k) \Rightarrow P(k+1)\)</span>,</li>
+</ul>
+<p>then we can conclude that <span class="math">\(P(n)\)</span> holds for every integer <span class="math">\(n \geq 1\)</span>.</p>
+<!--- 
+ <div class="compute"><script type="text/x-sage"><div class="compute"><script type="text/x-sage">
+@interact
+def tline(ep=slider(0.0001,4,0.1,0)):
+          p=plot(sin(x), (x, 0, 2*pi));
+          a=pi/2;
+          u=a+ep;
+          slope=(sin(u)-sin(a))/(u-a);
+          q=plot(slope*(x-pi/2)+sin(pi/2), (x,0,2*pi), color='red');
+          (p+q).show();
+</script></div> </script></div> 
+
+
+[`cloud.sagemath.com`](https://cloud.sagemath.com).
+ --->
+
+</div>
+</body>
+</html>
