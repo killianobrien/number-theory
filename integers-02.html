@@ -39,7 +39,7 @@ Killian O'Brien
   </p>
   <p class="date">04 October 2013</p>
 </div>
-<div class="section titleslide slide level1" id="ntc-the-integers-ch.1"><h1>NT&amp;C \\ The integers (Ch.1)</h1></div><div class="section slide level2" id="ntc-the-integers-axioms-11a-11b">
+<div id="ntc-the-integers-ch.1" class="titleslide slide section level1"><h1>NT&amp;C \\ The integers (Ch.1)</h1></div><div id="ntc-the-integers-axioms-11a-11b" class="slide section level2">
 <h1>NT&amp;C \\ The integers \\ Axioms 11a &amp; 11b</h1>
 <p>We will prove the equivalence of the two versions of axiom 11. We'll quote the axioms now referring explicitly to the integers.</p>
 <p>11a. (<strong>Induction axiom</strong>) If <span class="math">\(J\)</span> is a subset of the positive integers, i.e. <span class="math">\(J \subset \mathbb{Z}^+\)</span>, and <span class="math">\(J\)</span> has the properties</p>
@@ -50,7 +50,7 @@ Killian O'Brien
 <p>then <span class="math">\(J = \mathbb{Z}^+\)</span>.</p>
 <p>11b. (<strong>Well-ordered axiom</strong>) Every non empty subset of <span class="math">\(\mathbb{Z}^+\)</span> has a least element, i.e. if <span class="math">\(Q \subset \mathbb{Z}^+\)</span> is non-empty then there exists <span class="math">\(q_{\text{min}} \in Q\)</span> such that for all <span class="math">\(q \in Q\)</span> we have <span class="math">\(q_{\text{min}} \leq q\)</span>.</p>
 <p>We will see use of both forms of the axiom at some key points in the unit.</p>
-</div><div class="section slide level2" id="ntc-the-integers-proofs-by-induction">
+</div><div id="ntc-the-integers-proofs-by-induction" class="slide section level2">
 <h1>NT&amp;C \\ The integers \\ Proofs by induction</h1>
 <p>In practice, we use axiom 11a in a form expressed in terms of statements indexed by the elements of <span class="math">\(\mathbb{Z}^+\)</span>.</p>
 <h4 id="usual-phrasing-of-induction-principle-axiom-11a">Usual phrasing of induction principle (axiom 11a)</h4>
@@ -92,7 +92,18 @@ show(g(n))
 show(g(n).subs(sol[0]))
 </script></div> 
 
-
+</div><div id="ntc-the-integers" class="slide section level2">
+<h1>NT&amp;C \\ The integers</h1>
+<h3 id="next-weeks-tutorial-on-number-theory">Next week's tutorial on number theory</h3>
+<ul>
+<li>First few problems in Exercises 1.1</li>
+<li>Prepare the induction problems in Exercises 1.2</li>
+</ul>
+<h3 id="further-work">Further work</h3>
+<ul>
+<li>Read Preface and Chapters 1 &amp; 2 of <a href="http://shell.cas.usf.edu/~wclark/elem_num_th_book.pdf"><em>Elementary Number Theory</em></a> by Edwin Clark</li>
+<li>Use the Sage cell above to investigate the formulas for <span class="math">\[\sum_{j=1}^n j^a\]</span> for various positive integers <span class="math">\(a\)</span>. Is there a pattern to the polynomial coefficients? Research this further.</li>
+</ul>
 <!--- 
  <div class="compute"><script type="text/x-sage"><div class="compute"><script type="text/x-sage">
 @interact
@@ -104,6 +115,8 @@ def tline(ep=slider(0.0001,4,0.1,0)):
           q=plot(slope*(x-pi/2)+sin(pi/2), (x,0,2*pi), color='red');
           (p+q).show();
 </script></div> </script></div> 
+
+
 
 
 [`cloud.sagemath.com`](https://cloud.sagemath.com).

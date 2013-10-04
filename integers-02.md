@@ -64,6 +64,19 @@ show(g(n))
 show(g(n).subs(sol[0]))
 </script></div> 
 
+## NT&C \\\\ The integers
+
+### Next week's tutorial on number theory
+
+* First few problems in Exercises 1.1
+* Prepare the induction problems in Exercises 1.2
+
+### Further work
+* Read Preface and Chapters 1 & 2 of [*Elementary Number Theory*](http://shell.cas.usf.edu/~wclark/elem_num_th_book.pdf) by Edwin Clark
+* Use the Sage cell above to investigate the formulas for 
+$$\sum_{j=1}^n j^a$$
+for various positive integers $a$. Is there a pattern to the polynomial coefficients? Research this further. 
+
 
 <!--- 
  <div class="compute"><script type="text/x-sage"><div class="compute"><script type="text/x-sage">
@@ -76,6 +89,8 @@ def tline(ep=slider(0.0001,4,0.1,0)):
           q=plot(slope*(x-pi/2)+sin(pi/2), (x,0,2*pi), color='red');
           (p+q).show();
 </script></div> </script></div> 
+
+
 
 
 [`cloud.sagemath.com`](https://cloud.sagemath.com).
