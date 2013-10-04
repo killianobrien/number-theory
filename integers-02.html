@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Killian O'Brien" />
+  <meta name="date" content="2013-10-04" />
+  <title>6G5Z3006_1314 \\ Number Theory &amp; Cryptography</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+   href="mycss.css" />
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+      <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+      <script>$(function () {
+      // Make the div with id 'mycell' a Sage cell
+      sagecell.makeSagecell({inputLocation:  '#mycell',
+                             template:       sagecell.templates.minimal,
+                             evalButtonText: 'Activate'});
+      // Make *any* div with class 'compute' a Sage cell
+      sagecell.makeSagecell({inputLocation: 'div.compute',
+                             evalButtonText: 'Evaluate'});
+      });
+      </script>
+  	<link rel="stylesheet" type="text/css" href="https://sagecell.sagemath.org/static/sagecell_embed.css">
+  <script src="http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js.gz"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">6G5Z3006_1314 \\ Number Theory &amp; Cryptography</h1>
+  <p class="author">
+Killian O'Brien
+  </p>
+  <p class="date">04 October 2013</p>
+</div>
+<div class="section titleslide slide level1" id="ntc-the-integers-ch.1"><h1>NT&amp;C \\ The integers (Ch.1)</h1></div><div class="section slide level2" id="ntc-the-integers-axioms-11a-11b">
+<h1>NT&amp;C \\ The integers \\ Axioms 11a &amp; 11b</h1>
+<p>We will prove the equivalence of the two versions of axiom 11. We'll quote the axioms now referring explicitly to the integers.</p>
+<p>11a. (<strong>Induction axiom</strong>) If <span class="math">\(J\)</span> is a subset of the positive integers, i.e. <span class="math">\(J \subset \mathbb{Z}^+\)</span>, and <span class="math">\(J\)</span> has the properties</p>
+<ul>
+<li><span class="math">\(1 \in J\)</span>,</li>
+<li><span class="math">\(j \in J \Rightarrow j+1 \in J\)</span>,</li>
+</ul>
+<p>then <span class="math">\(J = \mathbb{Z}^+\)</span>.</p>
+<p>11b. (<strong>Well-ordered axiom</strong>) Every non empty subset of <span class="math">\(\mathbb{Z}^+\)</span> has a least element, i.e. if <span class="math">\(Q \subset \mathbb{Z}^+\)</span> is non-empty then there exists <span class="math">\(q_{\text{min}} \in Q\)</span> such that for all <span class="math">\(q \in Q\)</span> we have <span class="math">\(q_{\text{min}} \leq q\)</span>.</p>
+<p>We will see use of both forms of the axiom at some key points in the unit.</p>
+</div><div class="section slide level2" id="ntc-the-integers-proofs-by-induction">
+<h1>NT&amp;C \\ The integers \\ Proofs by induction</h1>
+<p>In practice, we use axiom 11a in a form expressed in terms of statements indexed by the elements of <span class="math">\(\mathbb{Z}^+\)</span>.</p>
+<h4 id="usual-phrasing-of-induction-principle-axiom-11a">Usual phrasing of induction principle (axiom 11a)</h4>
+<p>Suppose that we have a statement <span class="math">\(P(n)\)</span> associated to every integer <span class="math">\(n \geq 1\)</span>. If the following two statements hold:</p>
+<ul>
+<li><span class="math">\(P(1)\)</span> is true,</li>
+<li>for all <span class="math">\(k \geq 1\)</span>, <span class="math">\(P(k) \Rightarrow P(k+1)\)</span>,</li>
+</ul>
+<p>then we can conclude that <span class="math">\(P(n)\)</span> holds for every integer <span class="math">\(n \geq 1\)</span>.</p>
+<p>There are 7 proofs by induction for you to work with in Exercises 1.2 . You have seen the first one before I'm sure, but let's redo it as revision.</p>
+<ul>
+<li>Use induction to prove that <span class="math">\(\forall \, n \geq 1 \, \, \displaystyle\sum_{j=1}^{n} j = \frac{1}{2} n (n+1)\)</span>.</li>
+</ul>
+<p>As a further example let's seek a similar formula for <span class="math">\(\sum_{j=1}^{n} j^4\)</span>. Intuition tells us that this should be a quintic (degree 5) polynomial in <span class="math">\(n\)</span> (think of summation as similar to integration). Use Sage to '<em>discover</em>' the correct polynomial and then prove the result using induction.</p>
+<div class="compute"><script type="text/x-sage">
+# define the summation function f and a general quintic g
+var('a0, a1, a2, a3, a4, a5')
+def f(m):
+    return sum(i^4 for i in range(1,m+1))
+def g(m):
+    return a0 + a1*m + a2*m^2 + a3*m^3 + a4*m^4 + a5*m^5
+
+# generate 6 equations in the 6 unknowns a0,...,a5
+Eqs=[f(m) == g(m) for m in range(1,7)]
+
+# solve these equations
+# (solution_dict=True is a technical option to
+# enable the use of the subs below)
+sol=solve(Eqs, a0, a1, a2, a3, a4, a5, solution_dict=True)
+
+# see the equations and soltion
+show(Eqs)
+show(sol)
+
+# substitute the solution into the 
+# general quintic and display it.
+var('n')
+show(g(n))
+show(g(n).subs(sol[0]))
+</script></div> 
+
+
+<!--- 
+ <div class="compute"><script type="text/x-sage"><div class="compute"><script type="text/x-sage">
+@interact
+def tline(ep=slider(0.0001,4,0.1,0)):
+          p=plot(sin(x), (x, 0, 2*pi));
+          a=pi/2;
+          u=a+ep;
+          slope=(sin(u)-sin(a))/(u-a);
+          q=plot(slope*(x-pi/2)+sin(pi/2), (x,0,2*pi), color='red');
+          (p+q).show();
+</script></div> </script></div> 
+
+
+[`cloud.sagemath.com`](https://cloud.sagemath.com).
+ --->
+
+
+</div>
+</body>
+</html>
