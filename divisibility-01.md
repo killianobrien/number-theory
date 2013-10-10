@@ -61,6 +61,14 @@ P=primes(1,100)
 show(P)
 </script></div>
 
+Also look at relevant Matlab commands
+
+~~~
+factor(n)
+primes(n)
+isprime(n)
+~~~
+
 We shall prove he following theorem later in the course. 
 
 ### Theorem (Fundamental Theorem of Arithmetic)
@@ -138,6 +146,7 @@ $\Box$
 ## NT&C \\\\ Activities
 
 * Study the detail of these sections in Number Theory notes.
+	* In perticular, appreciate the role played by the well ordered axiom in the proofs of theorems about integer division with remainder and the characterisation of the gcd in terms of minimal linear combination.
 * Begin work on the problems in Exercises 1.1 (we will consider some of these next week and in the tutorials in 2 weeks time)
 
 
