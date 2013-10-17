@@ -97,13 +97,6 @@ Working backwards through these equations we replace each intermediate remainder
 
 The justification for the conclusions of the algorithm follow from theorem 2.2 and lemma 2.4. The fact that the algorithm will terminate (i.e. stop after a finite number of steps) follows from the fact that the remainders $r_i$ constitute a strictly decreasing sequence of non-negative integers and hence this sequence must arrive at zero after a finite number of steps.
 
-## NT&C \\\\ Activities
-
-* Study the detail of these sections in Number Theory notes.
-	* In particular, appreciate the role played by the well ordered axiom in the proofs of theorems about integer division with remainder and the characterisation of the gcd in terms of minimal linear combination.
-* Begin work on the problems in Exercises 1.1 (we will consider some of these next week and in the tutorials in 2 weeks time)
-
-
 <!--- 
  <div class="compute"><script type="text/x-sage"><div class="compute"><script type="text/x-sage">
 @interact
