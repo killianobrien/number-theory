@@ -38,7 +38,7 @@ Killian O'Brien
   </p>
   <p class="date">October 2013</p>
 </div>
-<div class="section titleslide slide level1" id="ntc-integer-divisibility-ch.-2"><h1>NT&amp;C \\ Integer divisibility (Ch. 2)</h1></div><div class="section slide level2" id="ntc-the-euclidean-algorithm-sec.-2.4">
+<div id="ntc-integer-divisibility-ch.-2" class="titleslide slide section level1"><h1>NT&amp;C \\ Integer divisibility (Ch. 2)</h1></div><div id="ntc-the-euclidean-algorithm-sec.-2.4" class="slide section level2">
 <h1>NT&amp;C \\ The Euclidean algorithm (sec. 2.4)</h1>
 <p>The Euclidean algorithm calculates the gcd of two integers <span class="math">\(a,b\)</span> and coefficients <span class="math">\(n,m\)</span> such that <span class="math">\[\gcd(a,b) = na + mb.\]</span></p>
 <p>The following lemma relates gcds to integer division with remainder.</p>
@@ -84,7 +84,7 @@ Killian O'Brien
 &amp;= 132 \times 12378 - 535 \times 3054,
 \end{align}
 \]</span> which is the desired linear combination.</p>
-</div><div class="section slide level2" id="ntc-the-euclidean-algorithm-sec.-2.4-1">
+</div><div id="ntc-the-euclidean-algorithm-sec.-2.4-1" class="slide section level2">
 <h1>NT&amp;C \\ The Euclidean algorithm (sec. 2.4)</h1>
 <h3 id="formally-describing-the-algorithm-alg.-2.1">Formally describing the algorithm (Alg. 2.1)</h3>
 <p>The following procedure is an algorithm for determining <span class="math">\(\gcd(a,b)\)</span> and obtaining the integer coefficients <span class="math">\(m,n\)</span> for an expression <span class="math">\[
@@ -104,6 +104,8 @@ r_n = r_{n-2} - q_n r_{n-1} .
 \]</span> Working backwards through these equations we replace each intermediate remainder <span class="math">\(r_j\)</span> (<span class="math">\(1 \leq j &lt; n\)</span>) with linear combinations of earlier remainders until we arrive at a linear combination for <span class="math">\(r_n\)</span> in terms of <span class="math">\(a\)</span> and <span class="math">\(b\)</span>, as required.</p>
 <h3 id="justification">Justification</h3>
 <p>The justification for the conclusions of the algorithm follow from theorem 2.2 and lemma 2.4. The fact that the algorithm will terminate (i.e. stop after a finite number of steps) follows from the fact that the remainders <span class="math">\(r_i\)</span> constitute a strictly decreasing sequence of non-negative integers and hence this sequence must arrive at zero after a finite number of steps.</p>
+<h3 id="links">Links</h3>
+<p>A nice javascript <a href="http://www.math.sc.edu/~sumner/numbertheory/euclidean/euclidean.html">Euclidean Algorithm Calculator</a> by <a href="http://www.math.sc.edu/~sumner/">David Sumner</a> from University of South Carolina.</p>
 <!--- 
  <div class="compute"><script type="text/x-sage"><div class="compute"><script type="text/x-sage">
 @interact

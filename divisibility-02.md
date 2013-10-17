@@ -97,6 +97,10 @@ Working backwards through these equations we replace each intermediate remainder
 
 The justification for the conclusions of the algorithm follow from theorem 2.2 and lemma 2.4. The fact that the algorithm will terminate (i.e. stop after a finite number of steps) follows from the fact that the remainders $r_i$ constitute a strictly decreasing sequence of non-negative integers and hence this sequence must arrive at zero after a finite number of steps.
 
+### Links
+
+A nice javascript [Euclidean Algorithm Calculator](http://www.math.sc.edu/~sumner/numbertheory/euclidean/euclidean.html) by [David Sumner](http://www.math.sc.edu/~sumner/) from University of South Carolina.
+
 <!--- 
  <div class="compute"><script type="text/x-sage"><div class="compute"><script type="text/x-sage">
 @interact
