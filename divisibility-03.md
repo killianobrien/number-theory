@@ -1,11 +1,12 @@
 % 6G5Z3006_1314 \\\\ Number Theory & Cryptography
 % Killian O'Brien
 % October 2013
-$\newcommand{\lcm}{\mathrm{lcm}}$
+
 # NT&C \\\\ Integer divisibility (Ch. 2)
 
 ## NT&C \\\\ The Euclidean algorithm
 Examining the working of the algorithm gives us the following result
+$\newcommand{\lcm}{\mathrm{lcm}}$
 
 ### Theorem 2.5
 
