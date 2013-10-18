@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Killian O'Brien" />
+  <title>6G5Z3006_1314 \\ Number Theory &amp; Cryptography</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+   href="mycss.css" />
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+      <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+      <script>$(function () {
+      // Make the div with id 'mycell' a Sage cell
+      sagecell.makeSagecell({inputLocation:  '#mycell',
+                             template:       sagecell.templates.minimal,
+                             evalButtonText: 'Activate'});
+      // Make *any* div with class 'compute' a Sage cell
+      sagecell.makeSagecell({inputLocation: 'div.compute',
+                             evalButtonText: 'Evaluate'});
+      });
+      </script>
+  	<link rel="stylesheet" type="text/css" href="https://sagecell.sagemath.org/static/sagecell_embed.css">
+  <script src="http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js.gz"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">6G5Z3006_1314 \\ Number Theory &amp; Cryptography</h1>
+  <p class="author">
+Killian O'Brien
+  </p>
+  <p class="date">October 2013</p>
+</div>
+<div class="slide section level2">
+
+<p><span class="math">\(\newcommand{\lcm}{\mathrm{lcm}}\)</span> # NT&amp;C \\ Integer divisibility (Ch. 2)</p>
+</div>
+<div id="ntc-the-euclidean-algorithm" class="slide section level2">
+<h1>NT&amp;C \\ The Euclidean algorithm</h1>
+<p>Examining the working of the algorithm gives us the following result</p>
+<h3 id="theorem-2.5">Theorem 2.5</h3>
+<p>If <span class="math">\(m\)</span> is a positive integer then <span class="math">\[
+\gcd(ma,mb) = m \gcd(a,b),
+\]</span> (where <span class="math">\(a,b\)</span> are not both zero).</p>
+<p><em>Proof</em>. This follows immediately from observing that the sequence of integer divisions that come about from applying the Euclidean Algorithm to the pair <span class="math">\(ma,mb\)</span> are simply the equations from applying the algorithm to the pair <span class="math">\(a,b\)</span>, but multiplied through by <span class="math">\(m\)</span>. For instance, <span class="math">\[
+\Big [ a=q_1 b + r_1, \, \, (0 \leq r_1 &lt; b) \Big ] \, \Leftrightarrow
+\, \Big [ma = q_1 mb + m r_1, \, \, (0 \leq m r_1 &lt; mb) \Big ] .
+\]</span></p>
+<p>So if <span class="math">\(\gcd(a,b) = r_n\)</span>, the final non-zero remainder, then <span class="math">\(\gcd(ma,mb) = m r_n\)</span>, as required. <span class="math">\(\square\)</span></p>
+</div>
+<div id="ntc-least-common-multiple" class="slide section level2">
+<h1>NT&amp;C \\ Least common multiple</h1>
+<p>Related to the concept of the greatest common divisor is that of the least common multiple.</p>
+<h3 id="definition-2.6-least-common-multiple">Definition 2.6 (least common multiple)</h3>
+<p>Let <span class="math">\(a,b \in \mathbb{Z}\)</span> be both non-zero. The <em>least common multiple</em>, <span class="math">\(\lcm(a,b)\)</span>, is the smallest positive integer that is a both a multiple of <span class="math">\(a\)</span> and a multiple of <span class="math">\(b\)</span>.</p>
+<p>There is a direct relationship between the greatest common divisor and the least common multiple of a pair of integers.</p>
+<h3 id="theorem-2.6">Theorem 2.6</h3>
+<p>If <span class="math">\(a,b \in \mathbb{Z}\)</span> are both positive then <span class="math">\[
+\gcd(a,b) \, \lcm(a,b) = ab.
+\]</span></p>
+<p><em>Proof</em>. Let <span class="math">\(d=\gcd(a,b)\)</span>. We prove the result directly by showing that the quantity <span class="math">\(\frac{ab}{d}\)</span> is equal to <span class="math">\(\lcm(a,b)\)</span>.</p>
+<p>Since <span class="math">\(d\)</span> divides <span class="math">\(a\)</span> and <span class="math">\(b\)</span> there exist <span class="math">\(\alpha, \beta \in \mathbb{Z}\)</span> such that <span class="math">\[
+a= \alpha d , \, \, b = \beta d,
+\]</span> and so <span class="math">\[
+\frac{ab}{d} = \alpha b = \beta a .
+\]</span> This shows that <span class="math">\(\frac{ab}{d}\)</span> is a positive common multiple of <span class="math">\(a\)</span> and <span class="math">\(b\)</span>. Now we show it is the least such one. Suppose that <span class="math">\(e\)</span> is another common multiple of <span class="math">\(a\)</span> and <span class="math">\(b\)</span>, say <span class="math">\[
+e = \lambda a = \mu b , \, \, (\lambda, \mu \in \mathbb{Z}).
+\]</span> Now since <span class="math">\(d=\gcd(a,b)\)</span> we know there are <span class="math">\(m,n \in \mathbb{Z}\)</span> such that <span class="math">\[
+d = ma + nb .
+\]</span> Now we examine the quantity <span class="math">\(c\)</span> divided by the integer <span class="math">\(\frac{ab}{d}\)</span>, <span class="math">\[
+\frac{c}{\frac{ab}{d}} = \frac{cd}{ab} = \frac{c (ma + nb)}{ab} 
+= \frac{c}{b} m + \frac{c}{a} n = \mu m + \lambda n .
+\]</span> This last expression shows that <span class="math">\(c\)</span> divided by the integer <span class="math">\(\frac{ab}{d}\)</span> , is an integer, or in other words, <span class="math">\(\frac{ab}{d}\)</span> divides <span class="math">\(c\)</span> and hence <span class="math">\(\frac{ab}{d} \leq c\)</span> as required. <span class="math">\(\square\)</span></p>
+
+</div>
+<div id="ntc-extending-gcd" class="slide section level2">
+<h1>NT&amp;C \ Extending GCD</h1>
+<p>The concept of greatest common divisors extends to sets of three or more integers without difficulty. The Euclidean Algorithm can still be applied to find the gcd in these cases. This is done by finding the gcd of pairs of integers at a time and using results like the following (quoted for the triple of integers case).</p>
+<h3 id="theorem-2.7-greatest-common-divisor-of-three-integers">Theorem 2.7 (Greatest common divisor of three integers)</h3>
+<p>Let <span class="math">\(d = \gcd(a,b,c)\)</span> have the obvious definition. Then <span class="math">\[
+d = \gcd \big( \gcd(a,b), c \big ) = \gcd \big( \gcd(a,c), b \big )
+=\gcd \big( \gcd(b,c), a \big ).
+\]</span> <em>Proof</em>. Exercise.</p>
+<!--- 
+ <div class="compute"><script type="text/x-sage"><div class="compute"><script type="text/x-sage">
+@interact
+def tline(ep=slider(0.0001,4,0.1,0)):
+          p=plot(sin(x), (x, 0, 2*pi));
+          a=pi/2;
+          u=a+ep;
+          slope=(sin(u)-sin(a))/(u-a);
+          q=plot(slope*(x-pi/2)+sin(pi/2), (x,0,2*pi), color='red');
+          (p+q).show();
+</script></div> </script></div> 
+
+
+
+
+[`cloud.sagemath.com`](https://cloud.sagemath.com).
+ --->
+
+
+</div>
+</body>
+</html>
