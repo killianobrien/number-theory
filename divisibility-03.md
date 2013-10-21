@@ -49,11 +49,11 @@ a= \alpha d , \, \, b = \beta d,
 $$
 and so 
 $$
-\frac{ab}{d} = \alpha b = \beta a .
+\frac{ab}{d} = \alpha b d= \beta a d.
 $$
-This shows that $\frac{ab}{d}$ is a positive common multiple of $a$ and $b$. Now we show it is the least such one. Suppose that $e$ is another common multiple of $a$ and $b$, say
+This shows that $\frac{ab}{d}$ is a positive common multiple of $a$ and $b$. Now we show it is the least such one. Suppose that $c$ is another common multiple of $a$ and $b$, say
 $$
-e = \lambda a = \mu b , \, \, (\lambda, \mu \in \mathbb{Z}).
+c = \lambda a = \mu b , \, \, (\lambda, \mu \in \mathbb{Z}).
 $$
 Now since $d=\gcd(a,b)$ we know there are $m,n \in \mathbb{Z}$ such that 
 $$
